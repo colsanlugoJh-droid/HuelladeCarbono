@@ -1,0 +1,109 @@
+/* ==========================================================================
+   ESTILOS INSTITUCIONALES - CALCULADORA DE HUELLA DE CARBONO CHUCUREÑA
+   Inspirado en los colores de la Serranía de los Yariguíes y la producción local
+   ========================================================================== */
+
+:root {
+    --verde-yariguies: #1e4620;
+    --marron-cacao: #4a2c11;
+    --crema-suave: #fcf8f2;
+    --rojo-alerta: #c0392b;
+    --amarillo-alerta: #f39c12;
+    --verde-salud: #27ae60;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--crema-suave);
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    background-color: var(--verde-yariguies);
+    color: white;
+    padding: 30px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+fieldset {
+    background: white;
+    border: 2px solid var(--marron-cacao);
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+legend {
+    font-weight: bold;
+    color: var(--marron-cacao);
+    padding: 0 10px;
+    font-size: 18px;
+}
+
+label {
+    display: inline-block;
+    margin: 8px 0;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+div {
+    border-radius: 15px;
+    
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    background: white;
+    margin-bottom: 100px;
+}
+
+th {
+    background-color: var(--marron-cacao);
+    color: white;
+    padding: 12px;
+}
+
+td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+/* Zonas de Diagnóstico Dinámico por Anclas */
+.zona-resultado {
+    margin-top: 20px;
+    padding: 30px;
+    border-radius: 8px;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+    /* Margen gigante inferior para forzar el foco visual del enlace nativo */
+    margin-bottom: 350px; 
+}
+
+.cocina { background-color: var(--verde-salud); border-left: 10px solid #1e6b38; }
+.transporte { background-color: var(--amarillo-alerta); border-left: 10px solid #b77507; color: #111; }
+.roja { background-color: var(--rojo-alerta); border-left: 10px solid #821c11; }
+
+.verde { background-color: var(--verde-salud); border-left: 10px solid #1e6b38; }
+.amarilla { background-color: var(--amarillo-alerta); border-left: 10px solid #b77507; color: #111; }
+.negro {background-color: #5c4747; border-left: 10 px solid #111;}
+
+
+
+.zona-resultado h2 { margin-top: 0; }
+.zona-resultado a { color: white; background: rgba(0,0,0,0.2); padding: 10px 20px; text-decoration: none; border-radius: 16px; display: inline-block; margin-top: 30px; }
+.zona-resultado a:hover { background: rgba(0,0,0,0.4); }

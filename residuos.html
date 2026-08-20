@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <!--Este es el título de la página-->
+        <meta charset="UTF-8">
+        <title>Huella de carbono Chucuri</title>
+        <!--Personalizar apariencia de la página-->
+        <link rel="Stylesheet" href="estilos.css">
+    </head>
+    <body>
+        <!--Encabezado de la página-->
+        <header>
+            <h1>Calculadora de Huella de Carbono del Hogar Chucureño</h1>
+            <p>Colegio San Luis Gonzaga - Grado Décimo</p>
+            <p><em>Protegiendo nuestro ambiente, nuestro hogar</em></p>
+        </header>
+        <!--Iniciamos la parte principal de nuestra calculadora-->
+        <main>
+            <form>
+                <!--Casilla 1: Transporte familiar-->
+                <fieldset>
+                    <legend>3. Disposición de residuos/basuras</legend>
+                    <!--Primera pregunta: Residuos orgánicos-->
+                    <p><strong>1. ¿Cómo manejan en tu familia los residuos orgánicos?</strong></p>
+                    <label>
+                        <input type="radio" name="organico" value="quema" onchange="actualizarMenus()">Se queman a cielo abierto o se arrojan al rio [5 puntos]</label>
+                        <!--Menú desplegable de la pregunta 1-->
+                    <div id="menu-quema" style="display: none; margin-top: 10px;">
+                        <label for="tipo-quema">Frecuencia de generación de residuos orgánicos a la semana</label>
+                        <select id="tipo-quema">
+                            <option>Todos los días [8 puntos]</option>
+                            <option>3 a 5 días a la semana [5 puntos]</option>
+                            <option>1 a 2 días a la semana [3 puntos]</option>
+                        </select>
+                    </div><br>
+                    <label>
+                        <input type="radio" name="organico" value="relleno" onchange="actualizarMenus()">Se tiran junta a la basura común [4 puntos]</label>
+                    <div id="menu-relleno" style="display: none; margin-top: 10px;">
+                        <label for="tipo-relleno">Frecuencia de generación de residuos orgánicos a la semana</label>
+                        <select id="tipo-relleno">
+                            <option>Todos los días [6 puntos]</option>
+                            <option>3 a 5 días a la semana [4 puntos]</option>
+                            <option>1 a 2 días a la semana [2 puntos]</option>
+                        </select>
+                    </div><br>
+                    <label>
+                        <input type="radio" name="organico" value="alimento" onchange="actualizarMenus()">Se usa como alimento para animales [1 puntos]</label>
+                    <div id="menu-alimento" style="display: none; margin-top: 10px;">
+                        <label for="tipo-alimento">Frecuencia de generación de residuos orgánicos a la semana</label>
+                        <select id="tipo-alimento">
+                            <option>Todos los días [1.5 puntos]</option>
+                            <option>3 a 5 días a la semana [1 puntos]</option>
+                            <option>1 a 2 días a la semana [0.5 puntos]</option>
+                        </select>
+                    </div><br>
+                    <label>
+                        <input type="radio" name="organico" value="composta" onchange="actualizarMenus()">Se realiza compostaje en la vivienda [0 puntos]</label><br>
+                    <!--Segunda pregunta: Materiales inorgánicos-->
+                    <p><strong>2. ¿Qué tratamiento le da a la basura reciclable (plástico, vidrio, cartón, metal)?</strong></p>
+                    <label>
+                        <input type="radio" name="reciclable" value="norecicla" onchange="actualizarMenus()">No separa ningún tipo residuo [4 puntos]</label>
+                    <div id="menu-norecicla" style="display: none; margin-top: 10px;">
+                        <label for="tipo-norecicla">Frecuencia con la que entrega el reciclaje</label>
+                        <select id="tipo-norecicla">
+                            <option>Varias veces por semana [8 puntos]</option>
+                            <option>1 vez a la semana [6 puntos]</option>
+                            <option>1 vez cada quince días [4 puntos]</option>
+                            <option>Una vez al mes o menos [2 puntos]</option>
+                        </select>
+                    </div><br>
+                    <label>
+                        <input type="radio" name="reciclable" value="moderado" onchange="actualizarMenus()">Separa de forma ocasional o solo algunos embases [2.5 puntos]</label>
+                    <div id="menu-moderado" style="display: none; margin-top: 10px;">
+                        <label for="tipo-moderado">Frecuencia con la que entrega el reciclaje</label>
+                        <select id="tipo-moderado">
+                            <option>Varias veces por semana [5 puntos]</option>
+                            <option>1 vez a la semana [4 puntos]</option>
+                            <option>1 vez cada quince días [2.5 puntos]</option>
+                            <option>Una vez al mes o menos [1 punto]</option>
+                        </select>
+                    </div><br>
+                    <label>
+                        <input type="radio" name="reciclable" value="separar" onchange="actualizarMenus()">Se separa regularmente y se entrega el día destinado para el reciclaje [1 punto]</label>
+                    <div id="menu-separar" style="display: none; margin-top: 10px;">
+                        <label for="tipo-separar">Frecuencia con la que entrega el reciclaje</label>
+                        <select id="tipo-separar">
+                            <option>Varias veces por semana [2 puntos]</option>
+                            <option>1 vez a la semana [1.5 puntos]</option>
+                            <option>1 vez cada quince días [1 punto]</option>
+                            <option>Una vez al mes o menos [0.5 puntos]</option>
+                        </select>
+                    </div><br>
+                    <label>
+                        <input type="radio" name="reciclable" value="recicla" onchange="actualizarMenus()">Se reduce el consumo y se recicla/reutiliza casi la totalidad [0 puntos]</label>
+                    <!--3ra pregunta: Plásticos de un solo uso-->
+                    <p><strong>3. ¿Con qué frecuencia adquiere plásticos de un solo uso (bolsas, envases desechables, botellas no retornables)?</strong></p>
+                    <label>
+                        <input type="radio" name="plastico" value="diario" onchange="actualizarMenus()">Se adquieren bolsas plásticas a diario [4 puntos]</label>
+                    <div id="menu-diario" style="display: none; margin-top: 10px;">
+                        <label for="tipo-diario">Frecuencia con la que los desecha semanal</label>
+                        <select id="tipo-diario">
+                            <option>Varias veces al día [8 puntos]</option>
+                            <option>Los 7 días de la semana [6 puntos]</option>
+                            <option>Entre 3 y 5 días de la semana [4 puntos]</option>
+                            <option>Menos de 2 veces a la semana [2 puntos]</option>
+                        </select>
+                    </div><br>
+                        <label>
+                        <input type="radio" name="plastico" value="ocasional" onchange="actualizarMenus()">Se adquieren bolsas plasticas y plasticos desechables varias veces a la semana [3 puntos]</label>
+                    <div id="menu-ocasional" style="display: none; margin-top: 10px;">
+                        <label for="tipo-ocasional">Frecuencia con la que los desecha semanal</label>
+                        <select id="tipo-ocasional">
+                            <option>Varias veces al día [6 puntos]</option>
+                            <option>Los 7 días de la semana [4.5 puntos]</option>
+                            <option>Entre 3 y 5 días de la semana [3 puntos]</option>
+                            <option>Menos de 2 veces a la semana [1.5 puntos]</option>
+                        </select>
+                    </div><br>
+                        <label>
+                        <input type="radio" name="plastico" value="tela" onchange="actualizarMenus()">Ocasionalmente adquiere bolsas reutilizables de tela [1.5 puntos]</label>
+                    <div id="menu-tela" style="display: none; margin-top: 10px;">
+                        <label for="tipo-tela">Frecuencia con la que las desecha semanal</label>
+                        <select id="tipo-tela">
+                            <option>Varias veces al día [3 puntos]</option>
+                            <option>Los 7 días de la semana [2 puntos]</option>
+                            <option>Entre 3 y 5 días de la semana [1.5 puntos]</option>
+                            <option>Menos de 2 veces a la semana [1 punto]</option>
+                        </select>
+                    </div><br>
+                        <label><input type="radio" name="plastico" value="nulo" onchange="actualizarMenus()">Siempre usa alternativas reutilizable [0 puntos]</label>  
+                </fieldset>
+            </form>
+        </main>
+        <section id="cocina" class="zona-resultado cocina">
+            <a href="resultados.html">Ir a resultados</a>
+        </section>
+        <script>
+            // Creamos la función que falta
+            function actualizarMenus() {
+                // Buscamos el elemento seleccionado en el momento del cambio
+                const radioOrganico = document.querySelector('input[name="organico"]:checked');
+                const menuQuema = document.getElementById("menu-quema");
+                const menuRelleno = document.getElementById("menu-relleno");
+                const menuAlimento = document.getElementById("menu-alimento");
+                
+
+                // Validamos que realmente haya una opción seleccionada antes de leer su valor
+                if (radioOrganico) {
+                    const opcionSeleccionada = radioOrganico.value;
+
+                    if (opcionSeleccionada === "quema") {
+                        menuQuema.style.display = "block";
+                        menuRelleno.style.display = "none";
+                        menuAlimento.style.display = "none";
+                    }
+                    else if (opcionSeleccionada === "relleno") {
+                        menuRelleno.style.display = "block";
+                        menuQuema.style.display = "none";
+                        menuAlimento.style.display = "none";
+                    }
+                    else if (opcionSeleccionada === "alimento") {
+                        menuAlimento.style.display = "block";
+                        menuQuema.style.display = "none";
+                        menuRelleno.style.display = "none";
+                    }
+                    else if (opcionSeleccionada === "composta") {
+                        menuQuema.style.display = "none";
+                        menuRelleno.style.display = "none";
+                        menuAlimento.style.display = "none";
+                    }
+                }
+                const radioReciclable = document.querySelector('input[name="reciclable"]:checked');
+                const menuNorecicla = document.getElementById("menu-norecicla");
+                const menuModerado = document.getElementById("menu-moderado");
+                const menuSeparar = document.getElementById("menu-separar");
+                
+
+                if (radioReciclable) {
+                    const opcionSeleccionada = radioReciclable.value;
+
+                    if (opcionSeleccionada === "norecicla") {
+                        menuNorecicla.style.display = "block";
+                        menuModerado.style.display = "none";
+                        menuSeparar.style.display = "none";
+                    }
+                    else if (opcionSeleccionada === "moderado") {
+                        menuModerado.style.display = "block";
+                        menuNorecicla.style.display = "none";
+                        menuSeparar.style.display = "none";
+                    }
+                    else if (opcionSeleccionada === "separar") {
+                        menuSeparar.style.display = "block";
+                        menuNorecicla.style.display = "none";
+                        menuModerado.style.display = "none";
+                    }
+                    else if (opcionSeleccionada === "recicla") {
+                        menuNorecicla.style.display = "none";
+                        menuModerado.style.display = "none";
+                        menuSeparar.style.display = "none";
+                    }
+                }
+                const radioPlastico = document.querySelector('input[name="plastico"]:checked');
+                const menuDiario = document.getElementById("menu-diario");
+                const menuOcasional = document.getElementById("menu-ocasional");
+                const menuTela = document.getElementById("menu-tela");
+                
+
+                if (radioPlastico) {
+                    const opcionSeleccionada = radioPlastico.value;
+
+                    if (opcionSeleccionada === "diario") {
+                        menuDiario.style.display = "block";
+                        menuOcasional.style.display = "none";
+                        menuTela.style.display = "none";
+                    }
+                    else if (opcionSeleccionada === "ocasional") {
+                        menuOcasional.style.display = "block";
+                        menuDiario.style.display = "none";
+                        menuTela.style.display = "none";
+                    }
+                    else if (opcionSeleccionada === "tela") {
+                        menuTela.style.display = "block";
+                        menuDiario.style.display = "none";
+                        menuOcasional.style.display = "none";
+                    }
+                    else if (opcionSeleccionada === "nulo") {
+                        menuDiario.style.display = "none";
+                        menuOcasional.style.display = "none";
+                        menuTela.style.display = "none";
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

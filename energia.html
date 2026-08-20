@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <!--Este es el título de la página-->
+        <meta charset="UTF-8">
+        <title>Huella de carbono Chucuri</title>
+        <!--Personalizar apariencia de la página-->
+        <link rel="Stylesheet" href="estilos.css">
+    </head>
+    <body>
+        <!--Encabezado de la página-->
+        <header>
+            <h1>Calculadora de Huella de Carbono del Hogar Chucureño</h1>
+            <p>Colegio San Luis Gonzaga - Grado Décimo</p>
+            <p><em>Protegiendo nuestro ambiente, nuestro hogar</em></p>
+        </header>
+        <!--Iniciamos la parte principal de nuestra calculadora-->
+        <main>
+            <form>
+                <!--Casilla 1: Energía del hogar-->
+                <fieldset>
+                    <legend>1. Energía de la cocina y del hogar</legend>
+                    <!--Primera pregunta: Cocinar-->
+                    <p><strong>1. ¿Cuál es la principal fuente de energía para cocinar en tu hogar?</strong></p>
+                    <label>
+                        <input type="radio" name="cocina" value="fogon" onchange="actualizarMenus()">Fogón de leña tradicional [4 puntos]</label>
+                        <!--Menú desplegable de la pregunta 1-->
+                    <div id="menu-fogon" style="display: none; margin-top: 10px;">
+                        <label for="tipo-fogon">Tiempo que gastas cocinando al día</label>
+                        <select id="tipo-fogon">
+                            <option>5 horas o más [8 puntos]</option>
+                            <option>3 o 4 horas [6 puntos]</option>
+                            <option>1 o 2 horas [4 puntos]</option>
+                            <option>Menos de 1 hora [2 puntos]</option>
+                        </select>
+                    </div><br>
+                    <label>
+                        <input type="radio" name="cocina" value="natural" onchange="actualizarMenus()">Estufa de gas natural [3 puntos]</label>                    
+                    <div id="menu-natural" style="display: none; margin-top: 10px;">
+                        <label for="tipo-natural">Tiempo que gastas cocinando al día</label>
+                        <select id="tipo-natural">
+                            <option>5 horas o más [6 puntos]</option>
+                            <option>3 o 4 horas [4.5 puntos]</option>
+                            <option>1 o 2 horas [3 puntos]</option>
+                            <option>Menos de 1 hora [1.5 puntos]</option>
+                        </select>
+                    </div><br>
+                    <label>
+                        <input type="radio" name="cocina" value="propano" onchange="actualizarMenus()">Estufa de gas propano [2 puntos]</label>                    
+                    <div id="menu-propano" style="display: none; margin-top: 10px;">
+                        <label for="tipo-propano">Tiempo que gastas cocinando al día</label>
+                        <select id="tipo-propano">
+                            <option>5 horas o más [4 puntos]</option>
+                            <option>3 o 4 horas [3 puntos]</option>
+                            <option>1 o 2 horas [2 puntos]</option>
+                            <option>Menos de 1 hora [1 punto]</option>
+                        </select>
+                    </div><br>
+                    <label>
+                        <input type="radio" name="cocina" value="electricidad" onchange="actualizarMenus()">Estufa eléctrica [1 punto]</label>
+                    <div id="menu-electricidad" style="display: none; margin-top: 10px;">
+                        <label for="tipo-electricidad">Tiempo que gastas cocinando al día</label>
+                        <select id="tipo-electricidad">
+                            <option>5 horas o más [2 puntos]</option>
+                            <option>3 o 4 horas [1.5 puntos]</option>
+                            <option>1 o 2 horas [1 punto]</option>
+                            <option>Menos de 1 hora [0.5 puntos]</option>
+                        </select>
+                    </div><br>                    
+                    <!--Segunda pregunta: Luces del hogar-->
+                    <p><strong>2. ¿Qué tipo de iluminación predomina en tu hogar?</strong></p>
+                    <label>
+                        <input type="radio" name="bombillo" value="amarillo" onchange="actualizarMenus()">Bombillos incandecentes/amarillos [4 puntos]</label>                    
+                    <div id="menu-amarillo" style="display: none; margin-top: 10px;">
+                        <label for="tipo-amarillo">Tiempo que permanecen encendidos al día</label>
+                        <select id="tipo-amarillo">
+                            <option>Más de 10 horas al día [8 puntos]</option>
+                            <option>Entre 6 y 10 horas [6 puntos]</option>
+                            <option>Entre 3 y 6 horas [4 puntos]</option>
+                            <option>Menos de 3 horas [2 puntos]</option>
+                        </select>
+                    </div><br>
+                    <label>
+                        <input type="radio" name="bombillo" value="fluorecente" onchange="actualizarMenus()">Bombillos ahorradores fluorecentes [2 puntos]</label>                    
+                    <div id="menu-fluorecente" style="display: none;">
+                        <label for="tipo-fluorecente">Tiempo que permanecen encendidos al día</label>
+                        <select id="tipo-fluorecente">
+                            <option>Más de 10 horas al día [4 puntos]</option>
+                            <option>Entre 6 y 10 horas [3 puntos]</option>
+                            <option>Entre 3 y 6 horas [2 puntos]</option>
+                            <option>Menos de 3 horas [1 punto]</option>
+                        </select>
+                    </div><br>
+                    <label>
+                        <input type="radio" name="bombillo" value="led" onchange="actualizarMenus()">Bombillos LED [1 punto]</label>                    
+                    <div id="menu-led" style="display: none;">
+                        <label for="tipo-led">Tiempo que permanecen encendidos al día</label>
+                        <select id="tipo-led">
+                            <option>Más de 10 horas al día [2 puntos]</option>
+                            <option>Entre 6 y 10 horas [1.5 puntos]</option>
+                            <option>Entre 3 y 6 horas [1 punto]</option>
+                            <option>Menos de 3 horas [0.5 puntos]</option>
+                        </select>
+                    </div><br>
+                    <label>
+                        <input type="radio" name="bombillo" value="solar" onchange="actualizarMenus()">Iluminación solar / Sin electricidad [0 puntos]</label><br>
+                    
+                    <p><strong>3. ¿Cuántos electrodomésticos de alto consumo posee en su hogar (Refrigerador, congelador, lavadora)?</strong></p>
+                    <label>
+                        <input type="radio" name="electrodomestico" value="antiguo" onchange="actualizarMenus()">Más de 3 equipos / Antiguos (más de 10 años) [4 puntos]</label>
+                        <!--Menú desplegable de la pregunta 1-->
+                    <div id="menu-antiguo" style="display: none; margin-top: 10px;">
+                        <label for="tipo-antiguo">Tiempo promedio de uso semanal</label>
+                        <select id="tipo-antiguo">
+                            <option>Uso continuo (24/7) [8 puntos]</option>
+                            <option>Entre 30 y 60 horas semanales [6 puntos]</option>
+                            <option>Entre 10 y 30 horas semanales [4 puntos]</option>
+                            <option>Menos de 10 horas semanales [2 puntos]</option>
+                        </select>
+                    </div><br>
+                    <label>
+                        <input type="radio" name="electrodomestico" value="estandar" onchange="actualizarMenus()">2 a 3 equipos estandar [3 puntos]</label>
+                        <!--Menú desplegable de la pregunta 2-->
+                    <div id="menu-estandar" style="display: none; margin-top: 10px;">
+                        <label for="tipo-estandar">Tiempo promedio de uso semanal</label>
+                        <select id="tipo-estandar">
+                            <option>Uso continuo (24/7) [6 puntos]</option>
+                            <option>Entre 30 y 60 horas semanales [4.5 puntos]</option>
+                            <option>Entre 10 y 30 horas semanales [3 puntos]</option>
+                            <option>Menos de 10 horas semanales [1.5 puntos]</option>
+                        </select>
+                    </div><br>
+                    <label>
+                        <input type="radio" name="electrodomestico" value="eficiente" onchange="actualizarMenus()">1 a 2 equipos con eficiencia A [1 punto]</label>
+                        <!--Menú desplegable de la pregunta 3-->
+                    <div id="menu-eficiente" style="display: none; margin-top: 10px;">
+                        <label for="tipo-eficiente">Tiempo promedio de uso semanal</label>
+                        <select id="tipo-eficiente">
+                            <option>Uso continuo (24/7) [2 puntos]</option>
+                            <option>Entre 30 y 60 horas semanales [1.5 puntos]</option>
+                            <option>Entre 10 y 30 horas semanales [1 punto]</option>
+                            <option>Menos de 10 horas semanales [0.5 puntos]</option>
+                        </select>
+                    </div><br>
+                    <label><input type="radio" name="electrodomestico" value="nulo" onchange="actualizarMenus()">No usa electr de alto consumo [0 puntos]</label>                    
+                </fieldset>
+            </form>
+        </main>
+        <section id="transporte" class="zona-resultado transporte">
+            <a href="transporte.html">Ir a transporte</a>
+        </section>
+        <script>
+            // Creamos la función que falta
+            function actualizarMenus() {
+                // Buscamos el elemento seleccionado en el momento del cambio
+                const radioCocina = document.querySelector('input[name="cocina"]:checked');
+                const menuFogon = document.getElementById("menu-fogon");
+                const menuNatural = document.getElementById("menu-natural");
+                const menuPropano = document.getElementById("menu-propano");
+                const menuElectricidad = document.getElementById("menu-electricidad");
+                
+
+                // Validamos que realmente haya una opción seleccionada antes de leer su valor
+                if (radioCocina) {
+                    const opcionSeleccionada = radioCocina.value;
+
+                    if (opcionSeleccionada === "fogon") {
+                        menuFogon.style.display = "block";
+                        menuNatural.style.display = "none";
+                        menuPropano.style.display = "none";
+                        menuElectricidad.style.display = "none";
+                    }
+                    else if (opcionSeleccionada === "natural") {
+                        menuNatural.style.display = "block";
+                        menuFogon.style.display = "none";
+                        menuPropano.style.display = "none";
+                        menuElectricidad.style.display = "none";
+                    }
+                    else if (opcionSeleccionada === "propano") {
+                        menuPropano.style.display = "block";
+                        menuFogon.style.display = "none";
+                        menuNatural.style.display = "none";
+                        menuElectricidad.style.display = "none";
+                    }
+                    else if (opcionSeleccionada === "electricidad") {
+                        menuElectricidad.style.display = "block";
+                        menuFogon.style.display = "none";
+                        menuNatural.style.display = "none";
+                        menuPropano.style.display = "none";
+                    }
+                }
+                const radioBombillo = document.querySelector('input[name="bombillo"]:checked');
+                const menuAmarillo = document.getElementById("menu-amarillo");
+                const menuFluorecente = document.getElementById("menu-fluorecente");
+                const menuLed = document.getElementById("menu-led");
+                const menuSolar = document.getElementById("menu-solar");
+
+                if (radioBombillo) {
+                    const opcionSeleccionada = radioBombillo.value;
+
+                    if (opcionSeleccionada === "amarillo") {
+                        menuAmarillo.style.display = "block";
+                        menuFluorecente.style.display = "none";
+                        menuLed.style.display = "none";
+                    }
+                    else if (opcionSeleccionada === "fluorecente") {
+                        menuFluorecente.style.display = "block";
+                        menuAmarillo.style.display = "none";
+                        menuLed.style.display = "none";
+                    }
+                    else if (opcionSeleccionada === "led") {
+                        menuLed.style.display = "block";
+                        menuAmarillo.style.display = "none";
+                        menuFluorecente.style.display = "none";
+                    }
+                    else if (opcionSeleccionada === "solar") {
+                        menuAmarillo.style.display = "none";
+                        menuFluorecente.style.display = "none";
+                        menuLed.style.display = "none";
+                    }
+                }
+                const radioElectrodomestico = document.querySelector('input[name="electrodomestico"]:checked');
+                const menuAntiguo = document.getElementById("menu-antiguo");
+                const menuEstandar = document.getElementById("menu-estandar");
+                const menuEficiente = document.getElementById("menu-eficiente");
+                const menuNulo = document.getElementById("menu-nulo");
+
+                if (radioElectrodomestico) {
+                    const opcionSeleccionada = radioElectrodomestico.value;
+
+                    if (opcionSeleccionada === "antiguo") {
+                        menuAntiguo.style.display = "block";
+                        menuEstandar.style.display = "none";
+                        menuEficiente.style.display = "none";
+                    }
+                    else if (opcionSeleccionada === "estandar") {
+                        menuEstandar.style.display = "block";
+                        menuAntiguo.style.display = "none";
+                        menuEficiente.style.display = "none";
+                    }
+                    else if (opcionSeleccionada === "eficiente") {
+                        menuEficiente.style.display = "block";
+                        menuAntiguo.style.display = "none";
+                        menuEstandar.style.display = "none";
+                    }
+                    else if (opcionSeleccionada === "nulo") {
+                        menuAntiguo.style.display = "none";
+                        menuEstandar.style.display = "none";
+                        menuEficiente.style.display = "none";
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

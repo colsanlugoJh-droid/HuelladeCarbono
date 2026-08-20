@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora Ambiental Chucureña</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <header>
+        <h1>Calculadora de Huella de Carbono del Hogar Chucureño</h1>
+        <p>Colegio San Luis Gonzaga - Grado Décimo</p>
+    </header>
+    <section id="instrucciones">
+        <h2>¿Cómo calcular tu resultado?</h2>
+        <p>Suma los puntos correspondientes a cada opción que seleccionaste arriba y busca tu rango en la tabla:</p>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Rango de Puntos</th>
+                    <th>Estado de la Huella</th>
+                    <th>Acción Requerida</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>De 0 a 15 puntos</td>
+                    <td>Huella Verde (Bajo Impacto)</td>
+                    <td><a href="#verde">Ver diagnóstico verde</a></td>
+                </tr>
+                <tr>
+                    <td>De 16 a 35 puntos</td>
+                    <td>Huella Amarilla (Impacto Moderado)</td>
+                    <td><a href="#amarilla">Ver diagnóstico amarillo</a></td>
+                </tr>
+                <tr>
+                    <td>De 36 a 60 puntos</td>
+                    <td>Huella Roja (Alto Impacto)</td>
+                    <td><a href="#roja">Ver diagnóstico rojo</a></td>
+                </tr>
+                <tr>
+                    <td>Más de 60 puntos</td>
+                    <td>Huella Negra (Muy alto Impacto)</td>
+                    <td><a href="#negro">Ver diagnóstico Negro</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section id="verde" class="zona-resultado verde">
+        <h2>🌱 Huella Baja - Protector de los Yariguíes</h2>
+        <p>¡Felicitaciones! Este nivel refleja un estilo de vida altamente sostenible con una generación mínima de gases de efecto invernadero. 
+            Muestras una alta conciencia ambiental en la eficiencia energética de tu hogar, el uso de transporte bajo en carbono y la correcta 
+            gestión de los residuos.</p>
+        <h3>Acciones recomendadas:</h3>
+        <ul>
+            <li>☀️ Instalar energías renovables: Considera implementar paneles solares pequeños para autoconsumo o iluminación exterior.</li>
+            <li>🚲 Promover la movilidad activa: Mantén la caminata o el uso de bicicleta para trayectos de corta distancia.</li>
+            <li>🪱 Optimizar el compostaje: Si ya compostas, prueba técnicas como la lombricultura para generar humus de alta calidad para plantas.</li>
+            <li>🔌 Eliminar consumos vampiro: Desconecta cargadores y electrodomésticos que permanezcan en modo de espera (standby).</li>
+            <li>📢 Ser multiplicador ambiental: Comparte tus hábitos con vecinos y familiares para fomentar prácticas sostenibles en tu comunidad.</li>
+        </ul>
+        <a href="index.html">Volver al inicio</a>
+    </section>
+
+    <section id="amarilla" class="zona-resultado amarilla">
+        <h2>🌿 Huella Moderada - Generación de huella promedio</h2>
+        <p>Tu huella de carbono se encuentra en el promedio, lo que indica que tienes hábitos positivos pero aún existen focos importantes 
+            de emisión. Los consumos de energía diarios, los hábitos de transporte habituales o la generación recurrente de basura inorgánica 
+            representan tus principales oportunidades de mejora.</p>
+        <h3>Acciones recomendadas:</h3>
+        <ul>
+            <li>💡 Actualizar a tecnología LED: Sustituye la totalidad de los bombillos tradicionales o ahorradores por tecnología LED de bajo consumo.</li>
+            <li>🚌 Adoptar el transporte colectivo: Sustituye el vehículo particular por transporte público o carpooling al menos 2 días a la semana.</li>
+            <li>♻️ Separar residuos en la fuente: Clasifica correctamente plástico, papel, cartón, vidrio y metal para entregarlos limpios al reciclador local.</li>
+            <li>🍳 Eficiencia en la cocina: Cocina siempre con las ollas tapadas y ajusta la llama al tamaño de la base del recipiente para no desperdiciar gas.</li>
+            <li>🛍️ Reducir empaques: Prioriza las compras en mercados locales a granel usando tus propias bolsas de tela.</li>
+        </ul>
+        <a href="index.html">Volver al inicio</a>
+    </section>
+
+    <section id="roja" class="zona-resultado roja">
+        <h2>⚠️ Huella Alta - Generación considerable de emisiones.</h2>
+        <p>Generas un volumen considerable de emisiones de CO₂ debido al uso frecuente de combustibles fósiles en el transporte, un consumo 
+            elevado de energía en el hogar o una disposición inadecuada de los desechos. Se requieren cambios estructurales en las rutinas 
+            diarias para mitigar tu impacto climático.</p>
+        <h3>Acciones recomendadas:</h3>
+        <ul>
+            <li>🚗 Racionar el vehículo particular: Reduce el kilometraje semanal planificando rutas eficientes y consolidando diligencias en un solo viaje.</li>
+            <li>🍂 Eliminar la quema de residuos: Cesa de inmediato la quema a cielo abierto de basuras u orgánicos por su alto impacto en la atmósfera y salud.</li>
+            <li>❄️ Racionalizar la climatización: Ajusta el aire acondicionado a una temperatura fija de 24 °C y apágalo cuando la habitación esté desocupada.</li>
+            <li>🔌 Renovar equipos antiguos: Reemplaza electrodomésticos de más de 10 años por equipos con certificación de eficiencia A++ o A+++.</li>
+            <li>🥗 Reducir orgánicos en vertederos: Destina los restos de comida a alimentación animal o a una compostera comunitaria en lugar de la bolsa común.</li>
+        </ul>
+        <a href="index.html">Volver al inicio</a>
+    </section>
+
+    <section id="negro" class="zona-resultado negro">
+        <h2>🚨 Huella Muy Alta - Impacto crítico.</h2>
+        <p>¡Cuidado! 🚨 Tu impacto ambiental es crítico e insostenible a largo plazo. Registras un consumo intensivo de combustibles fósiles, 
+            alta demanda energética o prácticas de manejo de desechos altamente contaminantes (como quema o enterramiento). Es urgente 
+            reestructurar las dinámicas de consumo y movilidad del hogar.</p>
+        <h3>Acciones recomendadas</h3>
+        <ul>
+            <li>🛑 Garantizar la recolección de basuras: Entrega los desechos exclusivamente a servicios oficiales de aseo o recicladores, erradicando quemas y botaderos.</li>
+            <li>🛵 Cambiar el medio de transporte principal: Sustituye el uso individual del vehículo a gasolina por vehículos eléctricos, motocicletas de bajo cilindraje o transporte público.</li>
+            <li>🔋 Migrar de combustible de cocina: Reemplaza el uso de leña o carbón vegetal por estufas de gas natural o de inducción eléctrica.</li>
+            <li>🪱 Gestionar el 100% de orgánicos: Implementa un sistema de manejo de residuos orgánicos en el predio para evitar emisiones de gas metano.</li>
+            <li>✈️ Sustituir viajes aéreos: Prioriza el transporte terrestre para viajes de corta y mediana distancia siempre que sea factible.</li>
+        </ul>
+        <a href="index.html">Volver al inicio</a>
+    </section>
+</body>
+</html>

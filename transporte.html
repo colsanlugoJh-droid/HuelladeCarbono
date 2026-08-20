@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <!--Este es el título de la página-->
+        <meta charset="UTF-8">
+        <title>Huella de carbono Chucuri</title>
+        <!--Personalizar apariencia de la página-->
+        <link rel="Stylesheet" href="estilos.css">
+    </head>
+    <body>
+        <!--Encabezado de la página-->
+        <header>
+            <h1>Calculadora de Huella de Carbono del Hogar Chucureño</h1>
+            <p>Colegio San Luis Gonzaga - Grado Décimo</p>
+            <p><em>Protegiendo nuestro ambiente, nuestro hogar</em></p>
+        </header>
+        <!--Iniciamos la parte principal de nuestra calculadora-->
+        <main>
+            <form>
+                <!--Casilla 1: Transporte familiar-->
+                <fieldset>
+                    <legend>2. Transporte familiar</legend>
+                    <!--Primera pregunta: Cocinar-->
+                    <p><strong>1. ¿Cuál es el principal medio de transporte de la familia?</strong></p>
+                    <label>
+                        <input type="radio" name="vehiculo" value="carro" onchange="actualizarMenus()">Carro propio a gasolina/diesel [4 puntos]</label>
+                        <!--Menú desplegable de la pregunta 1-->
+                    <div id="menu-carro" style="display: none; margin-top: 10px;">
+                        <label for="tipo-carro">Distancia aproximada recorrida a la semana</label>
+                        <select id="tipo-carro">
+                            <option>Más de 150 kilometros [8 puntos]</option>
+                            <option>Entre 70 y 150 kilometros [6 puntos]</option>
+                            <option>Entre 20 y 70 kilometros [4 puntos]</option>
+                            <option>Menos de 20 kilometros [2 puntos]</option>
+                        </select>
+                    </div><br>
+                    <label>
+                        <input type="radio" name="vehiculo" value="moto" onchange="actualizarMenus()">Moto propia [3 puntos]</label>
+                    <div id="menu-moto" style="display: none; margin-top: 10px;">
+                        <label for="tipo-moto">Distancia aproximada recorrida a la semana</label>
+                        <select id="tipo-moto">
+                            <option>Más de 150 kilometros [6 puntos]</option>
+                            <option>Entre 70 y 150 kilometros [4.5 puntos]</option>
+                            <option>Entre 20 y 70 kilometros [3 puntos]</option>
+                            <option>Menos de 20 kilometros [1.5 puntos]</option>
+                        </select>
+                    </div><br>
+                    <label>
+                        <input type="radio" name="vehiculo" value="bus" onchange="actualizarMenus()">Bus veredal [2 puntos]</label>
+                    <div id="menu-bus" style="display: none; margin-top: 10px;">
+                        <label for="tipo-bus">Distancia aproximada recorrida a la semana</label>
+                        <select id="tipo-bus">
+                            <option>Más de 150 kilometros [4 puntos]</option>
+                            <option>Entre 70 y 150 kilometros [3 puntos]</option>
+                            <option>Entre 20 y 70 kilometros [2 puntos]</option>
+                            <option>Menos de 20 kilometros [1 punto]</option>
+                        </select>
+                    </div><br>
+                    <label>
+                        <input type="radio" name="vehiculo" value="bicicleta" onchange="actualizarMenus()">Bicicleta, a pie o vehículo eléctrico [0 puntos]</label><br>
+                    <!--Segunda pregunta: Transporte intermunicipal-->
+                    <p><strong>2. ¿Qué medio de transporte usa para salir del municipio?</strong></p>
+                    <label>
+                        <input type="radio" name="municipal" value="particular" onchange="actualizarMenus()">Carro o camioneta particular [4 puntos]</label>
+                    <div id="menu-particular" style="display: none; margin-top: 10px;">
+                        <label for="tipo-particular">Distancia recorrida al mes en promedio</label>
+                        <select id="tipo-particular">
+                            <option>Más de 500 kilómetros al mes [8 puntos]</option>
+                            <option>Entre 200 y 500 kilómetros al mes [6 puntos]</option>
+                            <option>Entre 50 y 200 kilómetros al mes [4 puntos]</option>
+                            <option>Menos de 50 kilómetros al mes [2 puntos]</option>
+                        </select>
+                    </div><br>
+                    <label>
+                        <input type="radio" name="municipal" value="motocicleta" onchange="actualizarMenus()">Motocicleta [3 puntos]</label>
+                    <div id="menu-motocicleta" style="display: none;">
+                        <label for="tipo-motocicleta">Distancia recorrida al mes en promedio</label>
+                        <select id="tipo-motocicleta">
+                            <option>Más de 500 kilómetros al mes [6 puntos]</option>
+                            <option>Entre 200 y 500 kilómetros al mes [4.5 puntos]</option>
+                            <option>Entre 50 y 200 kilómetros al mes [3 puntos]</option>
+                            <option>Menos de 50 kilómetros al mes [1.5 puntos]</option>
+                        </select>
+                    </div><br>
+                    <label>
+                        <input type="radio" name="municipal" value="flota" onchange="actualizarMenus()">Bus intermunicipal [2 puntos]</label>
+                    <div id="menu-flota" style="display: none;">
+                        <label for="tipo-flota">Distancia recorrida al mes en promedio</label>
+                        <select id="tipo-flota">
+                            <option>Más de 500 kilómetros al mes [4 puntos]</option>
+                            <option>Entre 200 y 500 kilómetros al mes [3 puntos]</option>
+                            <option>Entre 50 y 200 kilómetros al mes [2 puntos]</option>
+                            <option>Menos de 50 kilómetros al mes [1 punto]</option>
+                        </select>
+                    </div><br>
+                    <label>
+                        <input type="radio" name="municipal" value="casa" onchange="actualizarMenus()">No viaja fuera del municipio [0 puntos]</label>
+                    <!--3ra pregunta: Viajes en avión-->
+                    <p><strong>3. ¿Ha viajado en avión en el último año?</strong></p>
+                    <label>
+                        <input type="radio" name="vuelos" value="frecuente" onchange="actualizarMenus()">Más de 4 vuelos (ida y vuelta) al año [4 puntos]</label>
+                    <div id="menu-frecuente" style="display: none; margin-top: 10px;">
+                        <label for="tipo-frecuente">Tiempo estimado de vuelo</label>
+                        <select id="tipo-frecuente">
+                            <option>Más de 20 horas de vuelo [8 puntos]</option>
+                            <option>Entre 8 y 20 horas de vuelo [6 puntos]</option>
+                            <option>Entre 3 y 8 horas de vuelo [4 puntos]</option>
+                            <option>Menos de 3 horas de vuelo [2 puntos]</option>
+                        </select>
+                    </div><br>
+                        <label>
+                        <input type="radio" name="vuelos" value="ocasional" onchange="actualizarMenus()">Entre 2 y 4 vuelos al año [3 puntos]</label>
+                    <div id="menu-ocasional" style="display: none; margin-top: 10px;">
+                        <label for="tipo-ocasional">Tiempo estimado de vuelo</label>
+                        <select id="tipo-ocasional">
+                            <option>Más de 20 horas de vuelo [6 puntos]</option>
+                            <option>Entre 8 y 20 horas de vuelo [4.5 puntos]</option>
+                            <option>Entre 3 y 8 horas de vuelo [3 puntos]</option>
+                            <option>Menos de 3 horas de vuelo [1.5 puntos]</option>
+                        </select>
+                    </div><br>
+                        <label>
+                        <input type="radio" name="vuelos" value="esporadico" onchange="actualizarMenus()">1 vuelo al año [2 puntos]</label>
+                    <div id="menu-esporadico" style="display: none; margin-top: 10px;">
+                        <label for="tipo-esporadico">Tiempo estimado de vuelo</label>
+                        <select id="tipo-esporadico">
+                            <option>Más de 20 horas de vuelo [4 puntos]</option>
+                            <option>Entre 8 y 20 horas de vuelo [3 puntos]</option>
+                            <option>Entre 3 y 8 horas de vuelo [2 puntos]</option>
+                            <option>Menos de 3 horas de vuelo [1 punto]</option>
+                        </select>
+                    </div><br>
+                        <label><input type="radio" name="vuelos" value="noviaja" onchange="actualizarMenus()">Ningún vuelo en el año [0 puntos]</label>  
+                </fieldset>
+            </form>
+        </main>
+        <section id="cocina" class="zona-resultado cocina">
+            <a href="residuos.html">Residuos y basura del hogar</a>
+        </section>
+        <script>
+            // Creamos la función que falta
+            function actualizarMenus() {
+                // Buscamos el elemento seleccionado en el momento del cambio
+                const radioVehiculo = document.querySelector('input[name="vehiculo"]:checked');
+                const menuCarro = document.getElementById("menu-carro");
+                const menuMoto = document.getElementById("menu-moto");
+                const menuBus = document.getElementById("menu-bus");
+                
+
+                // Validamos que realmente haya una opción seleccionada antes de leer su valor
+                if (radioVehiculo) {
+                    const opcionSeleccionada = radioVehiculo.value;
+
+                    if (opcionSeleccionada === "carro") {
+                        menuCarro.style.display = "block";
+                        menuMoto.style.display = "none";
+                        menuBus.style.display = "none";
+                    }
+                    else if (opcionSeleccionada === "moto") {
+                        menuMoto.style.display = "block";
+                        menuCarro.style.display = "none";
+                        menuBus.style.display = "none";
+                    }
+                    else if (opcionSeleccionada === "bus") {
+                        menuBus.style.display = "block";
+                        menuCarro.style.display = "none";
+                        menuMoto.style.display = "none";
+                    }
+                    else if (opcionSeleccionada === "bicicleta") {
+                        menuCarro.style.display = "none";
+                        menuMoto.style.display = "none";
+                        menuBus.style.display = "none";
+                    }
+                }
+                const radioMunicipal = document.querySelector('input[name="municipal"]:checked');
+                const menuParticular = document.getElementById("menu-particular");
+                const menuMotocicleta = document.getElementById("menu-motocicleta");
+                const menuFlota = document.getElementById("menu-flota");
+                const menuCasa = document.getElementById("menu-casa");
+
+                if (radioMunicipal) {
+                    const opcionSeleccionada = radioMunicipal.value;
+
+                    if (opcionSeleccionada === "particular") {
+                        menuParticular.style.display = "block";
+                        menuMotocicleta.style.display = "none";
+                        menuFlota.style.display = "none";
+                    }
+                    else if (opcionSeleccionada === "motocicleta") {
+                        menuMotocicleta.style.display = "block";
+                        menuParticular.style.display = "none";
+                        menuFlota.style.display = "none";
+                    }
+                    else if (opcionSeleccionada === "flota") {
+                        menuFlota.style.display = "block";
+                        menuParticular.style.display = "none";
+                        menuMotocicleta.style.display = "none";
+                    }
+                    else if (opcionSeleccionada === "casa") {
+                        menuParticular.style.display = "none";
+                        menuMotocicleta.style.display = "none";
+                        menuFlota.style.display = "none";
+                    }
+                }
+                const radioVuelos = document.querySelector('input[name="vuelos"]:checked');
+                const menuFrecuente = document.getElementById("menu-frecuente");
+                const menuOcasional = document.getElementById("menu-ocasional");
+                const menuEsporadico = document.getElementById("menu-esporadico");
+                const menuNoviaja = document.getElementById("menu-noviaja");
+
+                if (radioVuelos) {
+                    const opcionSeleccionada = radioVuelos.value;
+
+                    if (opcionSeleccionada === "frecuente") {
+                        menuFrecuente.style.display = "block";
+                        menuOcasional.style.display = "none";
+                        menuEsporadico.style.display = "none";
+                    }
+                    else if (opcionSeleccionada === "ocasional") {
+                        menuOcasional.style.display = "block";
+                        menuFrecuente.style.display = "none";
+                        menuEsporadico.style.display = "none";
+                    }
+                    else if (opcionSeleccionada === "esporadico") {
+                        menuEsporadico.style.display = "block";
+                        menuFrecuente.style.display = "none";
+                        menuOcasional.style.display = "none";
+                    }
+                    else if (opcionSeleccionada === "noviaja") {
+                        menuFrecuente.style.display = "none";
+                        menuOcasional.style.display = "none";
+                        menuEsporadico.style.display = "none";
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
