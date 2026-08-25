@@ -93,6 +93,30 @@ td {
     /* Margen gigante inferior para forzar el foco visual del enlace nativo */
     margin-bottom: 350px; 
 }
+.intro {
+    text-align: center;
+    font-size: 24px;
+}
+.centrado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+}
+.boton {
+    display: inline-block;
+    background-color: var(--verde-salud);
+    color: white;
+    font-size: 20px;
+    padding: 12px 28px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+.boton:hover{
+    background-color: var(--verde-yariguies);
+}
 
 .cocina { background-color: var(--verde-salud); border-left: 10px solid #1e6b38; }
 .transporte { background-color: var(--amarillo-alerta); border-left: 10px solid #b77507; color: #111; }
